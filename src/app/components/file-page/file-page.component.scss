@@ -1,0 +1,59 @@
+section{
+    margin-top:10vh;
+    height: 80vh;
+    width:100vw;
+    padding: 5px;
+    
+}
+
+ 
+
+.file-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 7vw;
+    margin: 10px;
+    position: relative;
+    pointer-events: visibleStroke;
+}
+
+.file-container:hover{
+    cursor: pointer;
+}
+
+.file-name{
+    font-size: small;
+    font-weight: 500;
+    font-family: monospace;
+}
+
+.tooltip-text{
+    position: absolute;
+    z-index: 2;
+    visibility: hidden;
+    top:80px;
+    // width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    font-size: 12px;
+}
+
+.avail:hover .tooltip-text{
+    visibility: visible !important;
+}
+
+.editable{
+    border: 1px solid blue;
+    z-index: 100;
+    // position: absolute;
+    // bottom: 0;
+    // top:50px;
+}
+
+.editable:focus{
+    background-color: aqua;
+}

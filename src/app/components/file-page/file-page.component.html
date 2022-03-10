@@ -1,0 +1,21 @@
+<section class="file-section" (contextmenu)="commonActions($event);">
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item" [ngClass]="f.active?'active':''" *ngFor="let f of (path | pathSplitter);">
+                <a *ngIf="!f.active" href="javscript:void(0);" (click)="setPathAndOpen(f.path);" >{{f.value}}</a>
+                <ng-container *ngIf="f.active">{{f?.value}}</ng-container>
+            </li>
+        </ol>
+    </nav>
+    <div class="row files-container"  style="padding: 12px;">
+        <div draggable="true" class="file-container col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 " [ngClass]="{'avail':!f.editable}" *ngFor="let f of (contents | filesTransform);let i=index;"   (contextmenu)="onFileContext($event,f,i);" >
+            <img width="50px" class="file-img" [src]="f.src" alt="file-image" (dblclick)="fileAction(f);" />
+            <span [id]="'fname_'+i" #span class="file-name" [ngClass]="{'editable':f.editable}" [attr.tabindex]="f.editable?0:100" (input)="onNameChange($event);" [attr.contenteditable]="f.editable" (dblclick)="rename(i);" [attr.autoFocus]="f.editable">{{f.editable?f.nm:(f.nm | textTransform)}}</span>
+            <!-- <input [id]="'fname_input_'+i" class="file-name" (input)="onNameChange($event);" *ngIf="f.editable" [value]="f.name" /> -->
+            <span  class="tooltip-text" >{{f.name}}</span>
+        </div>
+    </div>
+</section>
+<app-context-menu [items]="cItems" [styles]="styles" (onItemSelect)="handleContextActions($event);"></app-context-menu>
+
+

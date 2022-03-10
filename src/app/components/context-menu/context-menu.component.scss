@@ -1,0 +1,29 @@
+#context-menu{
+    position: absolute;
+    z-index: 10000;
+    list-style: none;
+    text-align: start;
+    background-color: black;
+    padding: 10px;
+    width: 120px;
+}
+
+.context-menu-item{
+    color: #fff;
+    margin: 0;
+    padding: 0 10px 5px 10px;       
+    font-size: 14px;
+}
+
+.context-menu-item:hover{
+    background-color: beige;
+    color: black;
+    cursor: pointer;
+}
+
+#context-menu hr{
+    color: #fff;
+    height: 1px;
+    margin:unset;
+}
+
