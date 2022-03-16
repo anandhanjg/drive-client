@@ -22,7 +22,7 @@ export class PathSplitterPipe implements PipeTransform {
         obj.value=x[i].toUpperCase();
         obj.path=Object.assign([],x).splice(0,i+1).join("\/")+"/"
       }
-      console.log(obj.path);
+      // console.log(obj.path);
       pathArr.push(obj)
     }
     pathArr[pathArr.length-1].active=true;

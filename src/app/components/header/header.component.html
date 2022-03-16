@@ -3,16 +3,16 @@
         <ul>
             <button> 🞬 </button>
             <li>
-                <a [ngClass]="selected==navOptions.files?'selected':''" id="files" routerLink="/" (click)="onNavChange(navOptions.files);"><i class="fas fa-file">&nbsp;</i><span>Drive</span></a>
+                <a [ngClass]="selected==navOptions.files?'selected':''" id="files" routerLink="/app/" (click)="onNavChange(navOptions.files);"><i class="fas fa-file">&nbsp;</i><span>Drive</span></a>
             </li>
             <li>
-                <a [ngClass]="selected==navOptions.movies?'selected':''" routerLink="/movies" id="movies" (click)="onNavChange(navOptions.movies);"><i class="fas fa-video">&nbsp;</i><span>Videos</span></a>
+                <a [ngClass]="selected==navOptions.movies?'selected':''" routerLink="/app/movies" id="movies" (click)="onNavChange(navOptions.movies);"><i class="fas fa-video">&nbsp;</i><span>Videos</span></a>
             </li>
             <li>
-                <a [ngClass]="selected==navOptions.music?'selected':''" routerLink="/music" id="music" (click)="onNavChange(navOptions.music);"><i class="fas fa-music">&nbsp;</i><span>Music</span></a>
+                <a [ngClass]="selected==navOptions.music?'selected':''" routerLink="/app/music" id="music" (click)="onNavChange(navOptions.music);"><i class="fas fa-music">&nbsp;</i><span>Music</span></a>
             </li>
             <li class="li-profile" >
-                <a [ngClass]="selected==navOptions.profile?'selected':''" routerLink="/profile" (click)="onNavChange(navOptions.profile);"><i class="fas fa-user">&nbsp;</i><span>Profile</span></a>
+                <a [ngClass]="selected==navOptions.profile?'selected':''" routerLink="/app/profile" (click)="onNavChange(navOptions.profile);"><i class="fas fa-user">&nbsp;</i><span>Profile</span></a>
             </li>
         </ul>
     </nav>

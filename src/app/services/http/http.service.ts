@@ -31,4 +31,8 @@ export class HttpService {
       params:query
     });
   }
+
+  fileGetService(path:string,query?:any,headerData?:any):any{
+    return this.http.get(this.url+path,{responseType:'arraybuffer',headers:this.getHeaders(headerData),params:query})
+  }
 }

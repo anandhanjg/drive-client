@@ -31,4 +31,8 @@ export class FileService {
     return this.http.postService<ApiResponse>(ApiEndpoints.mv,{path,oldName,newName});
   }
 
+  read(filePath:string):any{
+    return this.http.fileGetService('/file/read',{filePath});
+  }
+
 }

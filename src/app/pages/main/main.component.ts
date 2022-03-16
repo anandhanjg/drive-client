@@ -14,7 +14,7 @@ export class MainComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.table(this.profile)
+    // console.table(this.profile)
   }
 
 }

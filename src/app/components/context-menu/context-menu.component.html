@@ -1,6 +1,12 @@
 <ul id="context-menu"  [ngStyle]="styles" #contextElement>
-    <li class="context-menu-item" *ngFor="let item of items;" (click)="itemSelect(item);">{{item?.value || item}}</li>
+    <li class="context-menu-item" *ngFor="let item of items;" (click)="itemSelect(item);">
+        <i *ngIf="item.icon" [ngClass]="item.icon"></i><span>{{item?.value || item}}</span>
+    </li>
     <hr />
-    <li class="context-menu-item" (click)="itemSelect({value:'Refresh',action:'refresh'})">Refresh</li>
-    <li class="context-menu-item" (click)="itemSelect({value:'Logout',action:'logout'})">Logout</li>
+    <li class="context-menu-item" (click)="itemSelect({value:'Refresh',action:'refresh'})">
+       <i class="fa fa-refresh"></i><span>Refresh</span>
+    </li>
+    <li class="context-menu-item" (click)="itemSelect({value:'Logout',action:'logout'})">
+        <i class="fa fa-sign-out"></i><span>Logout</span>
+    </li>
 </ul>

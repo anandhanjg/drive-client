@@ -3,7 +3,7 @@ section{
     height: 80vh;
     width:100vw;
     padding: 5px;
-    
+    pointer-events: stroke;
 }
 
  
@@ -56,4 +56,50 @@ section{
 
 .editable:focus{
     background-color: aqua;
+}
+
+#div1,#div2{
+    border: 1px solid red;
+    width: 00px;
+    height: 400px;
+}
+
+.loader-layer,.file-view-layer{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top:0;
+    overflow: hidden;
+    z-index: 100000;
+    background-color: black;
+    opacity: 0.8;
+}
+
+.file-view-layer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1 !important;
+}
+
+.loader-layer > iframe{
+    width: 100%;
+    border: 0;
+    height: auto;
+    margin: 50vh 0;
+}
+
+.file-view-layer > iframe{
+    width: 85vw;
+    height: 80vh;
+    margin: 5vw 15vh;
+}
+
+.close-button{
+    position: absolute;
+    color: white;
+    font-weight: 800;
+    right: 5vw;
+    top: 5vh;
+    cursor: pointer;
 }
