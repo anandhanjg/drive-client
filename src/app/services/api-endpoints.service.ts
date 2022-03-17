@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class ApiEndpoints {
 
   constructor() { }
-  static url:string=!true?"http://localhost:4000":'http://anandhan.ddl.link:4000';
+  static url:string=!true?"http://localhost:4000":'https://anandhan.ddl.link:4000';
 
 
   static fileLs:string="/file/ls";
