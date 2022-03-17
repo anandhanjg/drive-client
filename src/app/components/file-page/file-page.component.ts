@@ -122,6 +122,7 @@ export class FilePageComponent implements OnInit, AfterViewInit,AfterViewChecked
           }else{
             let a=document.createElement('a')
             a.setAttribute('target','__blank');
+            a.setAttribute('download',file.name);
             a.href=u;
             a.click();
           }
