@@ -106,13 +106,25 @@ export class FilePageComponent implements OnInit, AfterViewInit,AfterViewChecked
     }else{
       console.log(file)
       this.fs.read(this.path+file.name).subscribe((r:any)=>{
-          let a=document.createElement('a')
-          a.setAttribute('target','__blank');
-          let u=URL.createObjectURL(new Blob([r],{type:file.mimeType}));
-          a.href=u;
-          this.url=this.sanitize.bypassSecurityTrustResourceUrl(u);
-          console.log(this.url);
-          // a.click();
+          let isPlayable:boolean=false;
+          let mt:string=file.mimeType;
+          if(mt.includes("video")){
+            if(document.createElement('video').canPlayType(mt)) isPlayable=true;
+          }else if(mt.includes('audio')){
+            if(document.createElement('audio').canPlayType(mt)) isPlayable=true;
+          }else if(mt.includes('pdf')){
+            isPlayable=true;
+          }
+          let u=URL.createObjectURL(new Blob([r],{type:mt}));
+          if(isPlayable){
+            this.url=this.sanitize.bypassSecurityTrustResourceUrl(u);
+            console.log(this.url);
+          }else{
+            let a=document.createElement('a')
+            a.setAttribute('target','__blank');
+            a.href=u;
+            a.click();
+          }
       })
     }
   }
