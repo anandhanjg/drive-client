@@ -95,20 +95,11 @@ section{
     margin: 5vw 15vh;
 }
 
-.file-view-layer > video{
+.file-view-layer > video, .file-view-layer > img{
     height: 80vh;
     width: auto;
 }
 
-.file-view-layer > audio{
-    height: 30vh;
-    width: auto;
-}
-
-.file-view-layer > img{
-    width: auto;
-    height: 80vh;
-}
 
 .close-button{
     position: absolute;
