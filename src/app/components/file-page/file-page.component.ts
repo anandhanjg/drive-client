@@ -112,7 +112,7 @@ export class FilePageComponent implements OnInit, AfterViewInit,AfterViewChecked
             if(document.createElement('video').canPlayType(mt)) isPlayable=true;
           }else if(mt.includes('audio')){
             if(document.createElement('audio').canPlayType(mt)) isPlayable=true;
-          }else if(mt.includes('pdf')){
+          }else if(mt.includes('pdf') || mt.includes('image')){
             isPlayable=true;
           }
           let u=URL.createObjectURL(new Blob([r],{type:mt}));
