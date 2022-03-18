@@ -245,7 +245,7 @@ export class FilePageComponent implements OnInit, AfterViewInit,AfterViewChecked
       this.styles['right']=(iw-event.x)+'px';
     }
 
-    if(ih-event.y>300){
+    if(ih-event.y>200){
       this.styles['top']=event.y+'px';
     }else{
       this.styles['bottom']=(ih-event.y)+'px';
