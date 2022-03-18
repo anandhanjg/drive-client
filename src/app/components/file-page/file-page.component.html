@@ -1,5 +1,5 @@
 <section  class="file-section" (contextmenu)="commonActions($event);">
-    <nav>
+    <nav (contextmenu)="$event.preventDefault();">
         <ol class="breadcrumb">
             <li class="breadcrumb-item" [ngClass]="f.active?'active':''" *ngFor="let f of (path | pathSplitter);">
                 <a *ngIf="!f.active" href="javascript:void(0);" (click)="setPathAndOpen(f.path);" >{{f.value}}</a>

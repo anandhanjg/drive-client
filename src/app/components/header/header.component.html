@@ -1,4 +1,4 @@
-<header>
+<header (contextmenu)="$event.preventDefault();">
     <nav>
         <button (click)="show=!show;" > <i class="fas" [ngClass]="show?'fa-times':'fa-bars'"></i> </button>
         <ul *ngIf="show || width>500">
