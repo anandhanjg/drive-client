@@ -114,8 +114,8 @@ export class FilePageComponent implements OnInit, AfterViewInit,AfterViewChecked
           }else if(mt.includes('audio')){
             this.openType="audio"
             if(document.createElement('audio').canPlayType(mt)) isPlayable=true;
-          }else if(mt.includes('pdf') || mt.includes('image')){
-            this.openType=mt.includes('pdf')?'pdf':'image';
+          }else if(mt.includes('pdf') || mt.includes('image') || mt.includes('text')){
+            this.openType=mt.includes('image')?'image':'default';
             isPlayable=true;
           }
           let u=URL.createObjectURL(new Blob([r],{type:mt}));
@@ -221,11 +221,36 @@ export class FilePageComponent implements OnInit, AfterViewInit,AfterViewChecked
 
   setStyles(event:any){
     event.preventDefault();
+    console.log(event.y);
+    console.log(event.x);
+    console.log(window.innerWidth-event.x);
+    console.log(window.innerHeight);
     this.styles={
-      "top":event.y+'px',
-      "left":event.x+'px',
+      // "top":event.y+'px',
+
+      // "left":event.x+'px',
+      "top":'unset',
+      "left":'unset',
+      "right":'unset',
+      "bottom":'unset',
       "display":"block"
     }
+
+    let iw=window.innerWidth;
+    let ih=window.innerHeight;
+
+    if(iw-event.x>300){
+      this.styles.left=event.x+'px';
+    }else{
+      this.styles['right']=(iw-event.x)+'px';
+    }
+
+    if(ih-event.y>300){
+      this.styles['top']=event.y+'px';
+    }else{
+      this.styles['bottom']=(ih-event.y)+'px';
+    }
+    
   }
 
   handleContextActions(val:any){
