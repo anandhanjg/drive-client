@@ -8,7 +8,7 @@
         </ol>
     </nav>
     <div class="row files-container"  style="padding: 12px;">
-        <div (drop)="onDrop($event);" (dragover)="allowDrop($event);"  class="file-container col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 " [ngClass]="{'avail':!f.editable}" *ngFor="let f of (contents | filesTransform);let i=index;"   (contextmenu)="onFileContext($event,f,i);" [id]="'file_container_'+i" >
+        <div (drop)="onDrop($event);" (dragover)="allowDrop($event);"  class="file-container col-6 col-sm-3 col-md-1 col-lg-1 col-xl-1 " [ngClass]="{'avail':!f.editable}" *ngFor="let f of (contents | filesTransform);let i=index;"   (contextmenu)="onFileContext($event,f,i);" [id]="'file_container_'+i" >
             <img  draggable="true"   (drag)="onDrag($event);" [id]="'fimage_'+i" width="50px" class="file-img" [src]="f.src" alt="file-image" (dblclick)="fileAction(f);" />
             <span  [id]="'fname_'+i" #span class="file-name" [ngClass]="{'editable':f.editable}" [attr.tabindex]="f.editable?0:100" (input)="onNameChange($event);" [attr.contenteditable]="f.editable" (dblclick)="rename(i);" [attr.autoFocus]="f.editable">{{f.editable?f.nm:(f.nm | textTransform)}}</span>
             <span  class="tooltip-text" >{{f.name}}</span>

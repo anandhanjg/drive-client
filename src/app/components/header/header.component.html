@@ -1,7 +1,7 @@
 <header>
     <nav>
-        <ul>
-            <button> 🞬 </button>
+        <button (click)="show=!show;"> 🞬 </button>
+        <ul *ngIf="show || width>=500">
             <li>
                 <a [ngClass]="selected==navOptions.files?'selected':''" id="files" routerLink="/app/" (click)="onNavChange(navOptions.files);"><i class="fas fa-file">&nbsp;</i><span>Drive</span></a>
             </li>
