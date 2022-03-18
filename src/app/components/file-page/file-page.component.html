@@ -22,7 +22,13 @@
 </div>
 
 
-<div [ngStyle]="{'display':url?'block':'none'}" class="file-view-layer" *ngIf="url">
+<div id="file-view-layer" class="file-view-layer" *ngIf="url" >
     <span id="file-close" class="close-button" (click)="closeFile($event);">X</span>
-    <iframe [src]="url"></iframe>
+    <ng-container [ngSwitch]="openType">
+        <video *ngSwitchCase="'video'" controls [src]="url"></video>
+        <audio *ngSwitchCase="'audio'" controls [src]="url"></audio>
+        <img *ngSwitchCase="'image'" [src]="url">
+        <iframe *ngSwitchDefault id="file-view-frame" [src]="url"></iframe>
+    </ng-container>
+    
 </div>

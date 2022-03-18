@@ -14,7 +14,7 @@ export class FilePageComponent implements OnInit, AfterViewInit,AfterViewChecked
   styles:Record<string,string>={
     "display":"none"
   };
-
+  openType:string="";
   url:any=null;
 
   @ViewChildren('span')
@@ -104,19 +104,23 @@ export class FilePageComponent implements OnInit, AfterViewInit,AfterViewChecked
     if(file.mimeType=='dir'){
       this.setPathAndOpen(this.path+file.name+"/");
     }else{
-      console.log(file)
+
       this.fs.read(this.path+file.name).subscribe((r:any)=>{
           let isPlayable:boolean=false;
           let mt:string=file.mimeType;
           if(mt.includes("video")){
+            this.openType="video"
             if(document.createElement('video').canPlayType(mt)) isPlayable=true;
           }else if(mt.includes('audio')){
+            this.openType="audio"
             if(document.createElement('audio').canPlayType(mt)) isPlayable=true;
           }else if(mt.includes('pdf') || mt.includes('image')){
+            this.openType=mt.includes('pdf')?'pdf':'image';
             isPlayable=true;
           }
           let u=URL.createObjectURL(new Blob([r],{type:mt}));
           if(isPlayable){
+            // let frame=document.getElementById('file-view-frame')
             this.url=this.sanitize.bypassSecurityTrustResourceUrl(u);
             console.log(this.url);
           }else{

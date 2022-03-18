@@ -95,6 +95,21 @@ section{
     margin: 5vw 15vh;
 }
 
+.file-view-layer > video{
+    height: 80vh;
+    width: auto;
+}
+
+.file-view-layer > audio{
+    height: 30vh;
+    width: auto;
+}
+
+.file-view-layer > img{
+    width: auto;
+    height: 80vh;
+}
+
 .close-button{
     position: absolute;
     color: white;
@@ -103,3 +118,22 @@ section{
     top: 5vh;
     cursor: pointer;
 }
+
+@media only screen and (max-width:500px){
+    .file-view-layer > iframe{
+        width: 100vw;
+        height: 100vh;
+        margin: 1vw 1vh;
+        // margin: 5vw 15vh;
+    }
+}
+
+// body:nth-child(2){
+//     display: flex;
+//     justify-content: center;
+// }
+
+// body:nth-child(2) > *{
+//     height: inherit;
+//     width: inherit;
+// }
