@@ -16,6 +16,9 @@ import { FilesTransformPipe } from './pipes/files-transform.pipe';
 import { TextTransformPipe } from './pipes/text-transform.pipe';
 import { PathSplitterPipe } from './pipes/path-splitter.pipe';
 import { ContextMenuComponent } from './components/context-menu/context-menu.component';
+import { AudioComponent } from './components/audio/audio.component';
+import { VideoComponent } from './components/video/video.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 @NgModule({
@@ -34,7 +37,10 @@ import { ContextMenuComponent } from './components/context-menu/context-menu.com
     FilesTransformPipe,
     TextTransformPipe,
     PathSplitterPipe,
-    ContextMenuComponent
+    ContextMenuComponent,
+    AudioComponent,
+    VideoComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

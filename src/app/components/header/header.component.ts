@@ -26,6 +26,7 @@ export class HeaderComponent implements OnInit {
 
   onNavChange(id:string){
     this.selected=id;
+    this.show=!this.show;
   }
 
 }

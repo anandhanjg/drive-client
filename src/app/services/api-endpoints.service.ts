@@ -14,6 +14,8 @@ export class ApiEndpoints {
   static rm:string="/file/rm";
   static touch:string="/file/touch";
   static mv:string="/file/mv";
+  static mvDirect:string="/file/mvDirect";
+  static scan:string="/file/scan";
 
   static login:string="/user/login";
   static register:string="/user/register";

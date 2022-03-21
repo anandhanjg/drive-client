@@ -17,6 +17,8 @@ export class FilePageComponent implements OnInit, AfterViewInit,AfterViewChecked
   openType:string="";
   url:any=null;
 
+  copiedFrom:any=null;
+
   @ViewChildren('span')
   spans:QueryList<ElementRef>=new QueryList<ElementRef>();
 
@@ -153,6 +155,14 @@ export class FilePageComponent implements OnInit, AfterViewInit,AfterViewChecked
         }
       },
       {
+        action:"cut",
+        value:"Cut",
+        icon:{
+          'fas':true,
+          'fa-cut':true
+        }
+      },
+      {
         action:"delete",
         value:"Delete",
         icon:{
@@ -212,7 +222,16 @@ export class FilePageComponent implements OnInit, AfterViewInit,AfterViewChecked
             'fas':true,
             'fa-upload':true
           }
-        }
+        },
+        {
+          value:'Paste',
+          action:'paste',
+          icon:{
+            'fas':true,
+            'fa-paste':true
+          },
+          disabled:!this.copiedFrom?true:false
+        },
       ]
       this.setStyles(event);
       this.cmData={};
@@ -278,11 +297,26 @@ export class FilePageComponent implements OnInit, AfterViewInit,AfterViewChecked
         break;
       case 'download':
         this.download();
-        break;    
+        break;
+      case 'cut':
+        this.copiedFrom={'path':this.path,'fileName':this.cmData.name};
+        // console.log(this.copiedFrom)
+        break;
+      case 'paste':
+        
+        this.handleMvDirect();
+        break;
       default:
         console.log("INVALID ACTION");
         break;
     }
+  }
+
+  handleMvDirect(){
+    if(!this.copiedFrom) return;
+    console.log(this.path,this.copiedFrom);
+    if(this.path==this.copiedFrom.path) { this.copiedFrom=null;return;}
+    this.fs.mvDirect(this.path,this.copiedFrom.path,this.copiedFrom.fileName).subscribe((r:any)=>{},(e)=>{},()=>{this.getFiles();this.copiedFrom=null})
   }
 
   download(){

@@ -40,6 +40,7 @@ export class ContextMenuComponent implements OnInit,AfterViewInit,OnChanges {
   }
 
   itemSelect(item:any):void{
+    if(item.disabled) return;
     this.sI.emit({data:this.data,actionItem:item})
     this.contextElement!.nativeElement!.style!.display="none"
   }
