@@ -1,4 +1,29 @@
 <section>
-    <p>audio works!</p>
+    <!-- <p>audio works!</p> -->
+    <ng-container *ngFor="let audio of audios;let i=index;">
+        <div class="audio-container"></div>
+        <div>
+            {{audio.name}} 
+            {{audio.mimeType}} 
+            {{audio.path}} 
+            {{audio.ext}}
+        </div>
+    </ng-container>
+    <div class="audio-player">
+        <div class="audio-button" (click)="playPrevious();">
+            <i class="fas fa-step-backward"></i>
+        </div>
+        <div class="audio-button" (click)="playOrPause();">
+            <i class="fas" [ngClass]="songPlaying?{'fa-pause':true,'fa-play':false}:{'fa-play':true,'fa-pause':false}"></i>
+        </div>
+        <div class="audio-button" (click)="playNext();">
+            <i class="fas fa-step-forward"></i>
+        </div>
+        <div class="audio-name-container">
+            <marquee>{{audios[songIndex].name}}</marquee>
+            <input class="form-range" type="range" min="0" max="100" [value]="volume" (change)="changeVolume($event);" id="volume">
+            <span class="volume-span">{{volume}}</span>
+        </div>
+    </div>
 </section>
 

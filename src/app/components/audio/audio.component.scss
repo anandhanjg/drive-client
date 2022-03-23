@@ -1,0 +1,159 @@
+$main-color: #272727;
+$secondary-color:#ff652f;
+
+.audio-player{
+    position: fixed;
+    bottom:12vh;
+    width: 30vw;
+    // background-color: #ff0000;
+    height: 8vh;
+    margin: auto;
+    left:35vw;
+    background: #272727;
+    border-radius: 20px;
+    box-shadow: -5px -5px 3px #2a2929, 5px 5px 3px #1a1717;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.volume-span{
+    padding: 10px;
+    position: absolute;
+    bottom: -1px;
+    font-weight: 800;
+}
+
+.audio-button {
+    background: $secondary-color;
+    width: 25px;
+    height: 25px;
+    margin: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.audio-button:hover{
+    cursor: pointer;
+}
+
+.audio-name-container{
+    width:250px;
+    margin-left: 20px;
+    position: relative;
+}
+
+@media only screen and (max-width:500px){
+    .audio-name-container{
+        width:200px;
+    }
+}
+
+.form-range {
+    width: 80%;
+    height: 1.5rem;
+    padding: 0;
+    background-color: transparent;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    // margin-left: 20px;
+}
+
+.form-range:focus {
+    outline: 0;
+}
+
+.form-range:focus::-webkit-slider-thumb {
+    box-shadow: 0 0 0 1px $secondary-color, 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+  
+.form-range:focus::-moz-range-thumb {
+    box-shadow: 0 0 0 1px $secondary-color, 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+  
+.form-range::-moz-focus-outer {
+    border: 0;
+}
+
+.form-range::-webkit-slider-thumb {
+    width: 1rem;
+    height: 1rem;
+    margin-top: -0.25rem;
+    background-color: #fafafa;
+    border: 0;
+    border-radius: 1rem;
+    -webkit-transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .form-range::-webkit-slider-thumb {
+      -webkit-transition: none;
+      transition: none;
+    }
+}
+
+.form-range::-webkit-slider-thumb:active {
+    background-color: #fbfbfb;
+}
+
+.form-range::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 0.5rem;
+    color: transparent;
+    cursor: pointer;
+    background-color: $secondary-color;
+    border-color: transparent;
+    border-radius: 1rem;
+}
+  
+.form-range::-moz-range-thumb {
+    width: 1rem;
+    height: 1rem;
+    background-color: #ffffff;
+    border: 0;
+    border-radius: 1rem;
+    -moz-transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    -moz-appearance: none;
+    appearance: none;
+}
+  
+@media (prefers-reduced-motion: reduce) {
+    .form-range::-moz-range-thumb {
+      -moz-transition: none;
+      transition: none;
+    }
+}
+
+.form-range::-moz-range-thumb:active {
+    background-color: #ffffff;
+}
+
+.form-range::-moz-range-track {
+    width: 100%;
+    height: 0.5rem;
+    color: transparent;
+    cursor: pointer;
+    background-color: #ffffff;
+    border-color: transparent;
+    border-radius: 1rem;
+}
+
+.form-range:disabled {
+    pointer-events: none;
+}
+
+.form-range:disabled::-webkit-slider-thumb {
+    background-color: #adb5bd;
+}
+
+.form-range:disabled::-moz-range-thumb {
+    background-color: #adb5bd;
+}
+  

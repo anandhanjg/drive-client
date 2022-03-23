@@ -1,27 +1,4 @@
 $nav-color: rgba(0, 0, 0, 0.94);
-$lime:rgb(8, 246, 0);
+// $lime:rgb(8, 246, 0);
+$lime:#ff652f;
 
-footer{
-    width: 100vw;
-    height: 10vh;
-    position: relative;
-    bottom:0;
-    // background-color: $nav-color;
-}
-
-div{
-    font-family: monospace;
-    font-weight: 500;
-    font-size: large;
-    height: 100%;
-    width: 100vw;
-    color:black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-a{
-    text-decoration: none;
-    color: $lime;
-}

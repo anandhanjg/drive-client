@@ -228,7 +228,7 @@ export class FilePageComponent implements OnInit, AfterViewInit,AfterViewChecked
           action:'paste',
           icon:{
             'fas':true,
-            'fa-paste':true
+            'fa-paste':true,
           },
           disabled:!this.copiedFrom?true:false
         },
