@@ -1,5 +1,5 @@
 <ul id="context-menu"  [ngStyle]="styles" #contextElement>
-    <li class="context-menu-item" *ngFor="let item of items;" (click)="itemSelect(item);">
+    <li class="context-menu-item" [ngClass]="item.disabled?'disabled':''" *ngFor="let item of items;" (click)="itemSelect(item);">
         <i *ngIf="item.icon" [ngClass]="item.icon"></i><span>{{item?.value || item}}</span>
     </li>
     <hr />

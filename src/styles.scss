@@ -1,8 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
-$body-background:rgba(0, 0, 0, 0.92);
+// $body-background:rgba(0, 0, 0, 0.92);
 
 html{
-    height: 100%;
+    height: 100vh;
 }
 
 body{
@@ -13,10 +13,269 @@ body{
 }
 
 
+// section{
+//     margin-top:10vh;
+//     height: 80vh;
+//     width:100vw;
+//     padding: 5px;
+//     pointer-events: stroke;
+// }
+
+$main-color: #272727;
+$secondary-color:#ff652f;
+
+header{
+    position: fixed;
+    width: 100%;
+    top:0;
+    z-index: 100;
+    margin:0;
+}
+header nav{
+    background-color: $main-color;
+    height: 10vh;
+}
+
+header  li{
+    list-style-type: none;
+    margin: 0 2vw;
+    font-size: 3vh;
+}
+
+header a{
+    text-decoration: none;
+    color: #ffffff;
+    padding: 2vw;
+    font-family: monospace;
+}
+
+header a:hover,header .selected{
+    color:$secondary-color;
+}
+
+
+
+header ul{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+}
+
+
+header button,.li-profile{
+    display: none;
+}
+
+
+@media only screen and (max-width:500px){
+    header nav{
+        height: unset;
+    }
+
+
+    header ul{
+        flex-direction: column;
+        justify-content: unset;
+        align-items: unset;
+        height: unset;
+    }
+
+    .li-profile{
+        display: block;
+    }
+
+    header li{
+        margin: 0;
+    }
+
+
+    header a{
+        display: block;
+    }
+
+
+    header button{
+        color: #ffffff;
+        display: block;
+        padding: 2vw;
+        font-size: 3vh;
+        background-color:$main-color;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        align-self: flex-start;
+    }
+
+    .file-view-layer > iframe{
+        width: 100vw;
+        height: 100vh;
+        margin: 1vw 1vh;
+    }
+
+    .audio-player{
+        width: 90vw !important;
+        left:5vw !important;
+    }
+}
+
+footer{
+    width: 100vw;
+    height: 10vh;
+    position: fixed;
+    bottom:0;
+    background-color: #272727;
+    // background-color: $nav-color;
+}
+
+footer > div{
+    font-family: monospace;
+    font-weight: 500;
+    font-size: large;
+    height: 100%;
+    width: 100vw;
+    color:white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer a{
+    text-decoration: none;
+    color: $secondary-color;
+}
+
+::-webkit-scrollbar{
+    background-color: #272727;
+    color:#ff652f;
+    width: 0.25rem;
+}
+
+::-webkit-scrollbar-track{
+    background: #272727;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ff652f;
+  }
+  
+::-webkit-scrollbar-thumb:hover {
+    background: #ff652f;
+}
+
 section{
-    margin-top:10vh;
+    margin:10vh 0vh;
     height: 80vh;
     width:100vw;
     padding: 5px;
     pointer-events: stroke;
+    overflow-y: auto;
+    overflow-x:hidden;
+    scrollbar-color: inherit;
+    scroll-behavior: smooth;
+}
+
+
+.file-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 40vw;
+    margin: 10px;
+    position: relative;
+    pointer-events: visibleStroke;
+}
+
+.file-container:hover{
+    cursor: pointer;
+}
+
+.file-name{
+    font-size: small;
+    font-weight: 500;
+    font-family: monospace;
+}
+
+.tooltip-text{
+    position: absolute;
+    z-index: 2;
+    visibility: hidden;
+    top:80px;
+    // width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    font-size: 12px;
+}
+
+.avail:hover .tooltip-text{
+    visibility: visible !important;
+}
+
+.editable{
+    border: 1px solid blue;
+    z-index: 100;
+    // position: absolute;
+    // bottom: 0;
+    // top:50px;
+}
+
+.editable:focus{
+    background-color: aqua;
+}
+
+#div1,#div2{
+    border: 1px solid red;
+    width: 00px;
+    height: 400px;
+}
+
+.loader-layer,.file-view-layer{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top:0;
+    overflow: hidden;
+    z-index: 100000;
+    background-color: black;
+    opacity: 0.8;
+}
+
+.file-view-layer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1 !important;
+}
+
+.loader-layer > iframe{
+    width: 100%;
+    border: 0;
+    height: auto;
+    margin: 50vh 0;
+}
+
+.file-view-layer > iframe{
+    width: 85vw;
+    height: 80vh;
+    margin: 5vw 15vh;
+}
+
+.file-view-layer > video, .file-view-layer > img{
+    height: 80vh;
+    width: auto;
+}
+
+
+.close-button{
+    position: absolute;
+    color: white;
+    font-weight: 800;
+    right: 5vw;
+    top: 5vh;
+    cursor: pointer;
 }

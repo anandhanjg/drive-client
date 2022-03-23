@@ -1,9 +1,9 @@
 <section  class="file-section" (contextmenu)="commonActions($event);">
-    <nav (contextmenu)="$event.preventDefault();">
+    <nav class="file-breadcrumb" (contextmenu)="$event.preventDefault();">
         <ol class="breadcrumb">
             <li class="breadcrumb-item" [ngClass]="f.active?'active':''" *ngFor="let f of (path | pathSplitter);">
-                <a *ngIf="!f.active" href="javascript:void(0);" (click)="setPathAndOpen(f.path);" >{{f.value}}</a>
-                <ng-container *ngIf="f.active">{{f?.value}}</ng-container>
+                <a style="color: #ff652f;" *ngIf="!f.active" href="javascript:void(0);" (click)="setPathAndOpen(f.path);" >{{f.value}}</a>
+                <span style="color: white;" *ngIf="f.active">{{f?.value}}</span>
             </li>
         </ol>
     </nav>
